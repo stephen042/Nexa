@@ -1,0 +1,19 @@
+[14-Aug-2023 17:14:21 UTC] PHP Notice:  Undefined index: radio-name in /home/yaqdrtbe/public_html/account/signup/verify-registration.php on line 15
+[09-Aug-2024 22:30:20 UTC] PHP Fatal error:  Uncaught PHPMailer\PHPMailer\Exception: SMTP Error: Could not authenticate. in /home/nexarpar/public_html/account/include/vendor/phpmailer/phpmailer/src/PHPMailer.php:1911
+Stack trace:
+#0 /home/nexarpar/public_html/account/include/vendor/phpmailer/phpmailer/src/PHPMailer.php(1725): PHPMailer\PHPMailer\PHPMailer->smtpConnect()
+#1 /home/nexarpar/public_html/account/include/vendor/phpmailer/phpmailer/src/PHPMailer.php(1481): PHPMailer\PHPMailer\PHPMailer->smtpSend()
+#2 /home/nexarpar/public_html/account/include/vendor/phpmailer/phpmailer/src/PHPMailer.php(1320): PHPMailer\PHPMailer\PHPMailer->postSend()
+#3 /home/nexarpar/public_html/account/include/userClass.php(106): PHPMailer\PHPMailer\PHPMailer->send()
+#4 /home/nexarpar/public_html/account/signup/verify-registration.php(147): message->send_mail()
+#5 {main}
+  thrown in /home/nexarpar/public_html/account/include/vendor/phpmailer/phpmailer/src/PHPMailer.php on line 1911
+[09-Aug-2024 23:11:54 UTC] PHP Fatal error:  Uncaught PHPMailer\PHPMailer\Exception: SMTP Error: Could not authenticate. in /home/nexarpar/public_html/account/include/vendor/phpmailer/phpmailer/src/PHPMailer.php:1911
+Stack trace:
+#0 /home/nexarpar/public_html/account/include/vendor/phpmailer/phpmailer/src/PHPMailer.php(1725): PHPMailer\PHPMailer\PHPMailer->smtpConnect()
+#1 /home/nexarpar/public_html/account/include/vendor/phpmailer/phpmailer/src/PHPMailer.php(1481): PHPMailer\PHPMailer\PHPMailer->smtpSend()
+#2 /home/nexarpar/public_html/account/include/vendor/phpmailer/phpmailer/src/PHPMailer.php(1320): PHPMailer\PHPMailer\PHPMailer->postSend()
+#3 /home/nexarpar/public_html/account/include/userClass.php(106): PHPMailer\PHPMailer\PHPMailer->send()
+#4 /home/nexarpar/public_html/account/signup/verify-registration.php(147): message->send_mail()
+#5 {main}
+  thrown in /home/nexarpar/public_html/account/include/vendor/phpmailer/phpmailer/src/PHPMailer.php on line 1911
