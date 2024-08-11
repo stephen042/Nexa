@@ -10,7 +10,7 @@ if (isset($_POST['regSubmit'])) {
     $firstname = $_POST['firstname'];
     $lastname = $_POST['lastname'];
     $acct_occupation = $_POST['occupation'];
-    $acct_status = "hold";
+    $acct_status = "active";
     $country = $_POST['country'];
     $acct_gender = $_POST['radio-name'];
     $address = $_POST['address'];
