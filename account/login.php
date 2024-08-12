@@ -18,15 +18,15 @@ if (isset($_POST["sub"])) {
 
 
 if (isset($_POST['login'])) {
-  $acct_no = inputValidation($_POST['acct_no']);
+  $acct_email = inputValidation($_POST['acct_email']);
   $acct_password = inputValidation($_POST['acct_password']);
 
 
 
-  $log = "SELECT * FROM users WHERE acct_no =:acct_no";
+  $log = "SELECT * FROM users WHERE acct_email =:acct_email";
   $stmt = $conn->prepare($log);
   $stmt->execute([
-    'acct_no' => $acct_no
+    'acct_email' => $acct_email
   ]);
 
   $user = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -43,20 +43,19 @@ if (isset($_POST['login'])) {
 
       //            toast_alert("error","Invalid login details");
     } else {
-
       if ($user['acct_status'] === 'hold') {
         notify_alert('Account on Hold, Kindly contact support to activate your account', 'danger', '3000', 'close');
       } else {
 
         $acct_otp = substr(number_format(time() * rand(), 0, '', ''), 0, 6);
 
-        $sql = "UPDATE users SET acct_otp=:acct_otp WHERE acct_no=:acct_no";
+        $sql = "UPDATE users SET acct_otp=:acct_otp WHERE acct_email=:acct_email";
         $stmt = $conn->prepare($sql);
         $stmt->execute([
           'acct_otp' => $acct_otp,
-          'acct_no' => $acct_no
+          'acct_email' => $acct_email
         ]);
-
+        
         //IP LOGIN DETAILS
 
         $device = $_SERVER['HTTP_USER_AGENT'];
@@ -75,10 +74,10 @@ if (isset($_POST['login'])) {
 
         if (true) {
 
-          $sql = "SELECT * FROM users WHERE acct_no=:acct_no";
+          $sql = "SELECT * FROM users WHERE acct_email=:acct_email";
           $stmt = $conn->prepare($sql);
           $stmt->execute([
-            'acct_no' => $acct_no
+            'acct_email' => $acct_email
           ]);
           $resultCode = $stmt->fetch(PDO::FETCH_ASSOC);
           $code = $resultCode['acct_otp'];
@@ -105,8 +104,10 @@ if (isset($_POST['login'])) {
           }
 
           if (true) {
-            $_SESSION['login'] = $user['acct_no'];
-            header("Location:./pin.php");
+            session_start();
+            $_SESSION['acct_no'] = $user['acct_no'];
+            $_COOKIE['firstVisit'] = $user['acct_no'];
+            header("Location:./user/dashboard.php");
             exit;
           }
         }
@@ -157,12 +158,12 @@ if (isset($_POST['login'])) {
             <div class="form">
 
               <div id="username-field" class="field-wrapper input">
-                <label for="username">Account Number</label>
+                <label for="username">Email</label>
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user">
                   <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
                   <circle cx="12" cy="7" r="4"></circle>
                 </svg>
-                <input id="username" name="acct_no" type="number" class="form-control" placeholder="Account ID">
+                <input id="username" name="acct_email" type="email" class="form-control" placeholder="Email address">
               </div>
 
               <div id="password-field" class="field-wrapper input mb-2">

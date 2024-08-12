@@ -7,11 +7,18 @@ define("WEB_EMAIL", "support@nexarockfinance.com"); // Your Website Email
 $web_url = WEB_URL;
 
 function dbConnect(){
+    // $servername = "localhost";
+    // $username = "nexarpar_corp"; //DATABASE USERNAME
+    // $password = "m7sTA6VSNiRMKju"; //DATABASE PASSWORD
+    // $database = "nexarpar_corp"; //DATABASE NAME
+    // $port = "3306"; //DATABASE port NB default is 3300
+
+    // local details 
     $servername = "localhost";
-    $username = "nexarpar_corp"; //DATABASE USERNAME
-    $password = "m7sTA6VSNiRMKju"; //DATABASE PASSWORD
-    $database = "nexarpar_corp"; //DATABASE NAME
-    $port = "3306"; //DATABASE port NB default is 3300
+    $username = "root"; //DATABASE USERNAME
+    $password = ""; //DATABASE PASSWORD
+    $database = "nexarock"; //DATABASE NAME
+    $port = "3308"; //DATABASE port NB default is 3300
     $dns = "mysql:host=$servername;port=$port;dbname=$database";
 
     try {
