@@ -588,7 +588,7 @@ class emailMessage
                 <table role="presentation" style="width:602px;border-collapse:collapse;border:1px solid #cccccc;border-spacing:0;text-align:left;">
                   <tr>
                         <td align="center" style="padding:20px 0 20px 0;background:#70bbd9; font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;font-size: 20px;margin: 10px;">
-                            <h1 style="margin:24px">Golden Stone</h1> 
+                            <h1 style="margin:24px">Nexa Rock</h1> 
                         </td>
                   </tr>
                   <tr style="background-color: #eeeeee;">
@@ -1882,7 +1882,6 @@ class emailMessage
                             <br>
                             <p><strong>Account Number - $acctno </strong></p>
                             <p><strong> Password - $password </strong></p>
-                            <p><strong> Pin - $pin </strong></p>
                              
                              <p style='margin: 0;'>
                              Your account is been Processed and we will get back to you once your account is been verified 
